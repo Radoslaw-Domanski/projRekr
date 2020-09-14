@@ -6,7 +6,8 @@
 <hr>
 <div class="row">
     <div class="col-md-6 col-sm-12">
-        <div style="margin-left: 10px;min-height: 38px;"><span style="display:inline-block;padding-top: 5px;">Available ingredients: </span>
+        <div class="list-title">
+            <span class="inline-span">Available ingredients: </span>
             <dx-button icon="clear"
                 stylingMode="text"
                 text="Clear Ingredients"
@@ -22,7 +23,7 @@
             [(selectedItems)]="selectedItems">
         </dx-list>
         <div class="caption text-center">Selected Ingredients:</div>
-        <div class="text-center" style="min-height:24px;">{{selectedItems && selectedItems.join(", ")}}</div>
+        <div class="text-center selected-items">{{selectedItems && selectedItems.join(", ")}}</div>
         <div class="text-center"
         (mouseenter)="toggleButtonTooltip()" 
         (mouseleave)="toggleButtonTooltip()">

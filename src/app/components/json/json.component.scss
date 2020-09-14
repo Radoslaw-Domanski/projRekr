@@ -1,7 +1,13 @@
 .inline-btn{
     display: inline-block;
 }
-
+.width-btn{
+    width: calc( 100% - 36px );
+}
 .row-padding{
     padding: 10px 0;
+}
+
+.row-btn{
+    margin-bottom: 10px;
 }

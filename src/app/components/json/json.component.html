@@ -1,12 +1,17 @@
 <section>
+    <div class="row">
+        <div class="col">
+            <h2>JSON Generator</h2>
+        </div>
+    </div>
+    <hr>
     <form [formGroup]="columnForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-4 col-sm-12">
                 <div class="row-padding">Column</div>
                 <div>
                     <dx-text-box
-                        class="inline-btn"
-                        style="width: calc( 100% - 36px )"
+                        class="inline-btn width-btn"
                         formControlName="headerName"
                         placeholder="Enter column name..."
                         (keyup.enter)="onSubmit()"
@@ -42,12 +47,12 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row row-btn">
             <div class="col">
                 <div class="row-padding">
                     <dx-button
+                    type="default"
                     class="float-right"
-                    icon="search"
                     text="Create Grid"
                     (onClick)="onSubmit()">
                     </dx-button>

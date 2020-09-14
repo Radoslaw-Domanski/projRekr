@@ -1,7 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
-.dx-list-item-selected a,.dx-state-active a  {
-    color:black !important;
+@font-face {
+    font-family: oswald;
+    src: url(assets\font\Oswald-VariableFont_wght.ttf) format("opentype");
+}
+*{
+    font-family: 'oswald';
+}
+input{
+    font-family: 'oswald' !important;
 }
 body{
     background-color: #F1FAEE;
+}
+.bg-nav{
+    background-color: #3C91E6;
+}
+.dx-list-item-selected a,.dx-state-active a  {
+    color:black !important;
 }
