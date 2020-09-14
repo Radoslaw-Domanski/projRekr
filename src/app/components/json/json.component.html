@@ -1,0 +1,89 @@
+<section>
+    <form [formGroup]="columnForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="row-padding">Column</div>
+                <div>
+                    <dx-text-box
+                        class="inline-btn"
+                        style="width: calc( 100% - 36px )"
+                        formControlName="headerName"
+                        placeholder="Enter column name..."
+                        (keyup.enter)="onSubmit()"
+                    ></dx-text-box>
+                    <dx-button
+                        stylingMode="text"
+                        class="inline-btn"
+                        icon="help"
+                        text=""
+                        (onClick)="displayJSON()">
+                    </dx-button>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="row-padding">Type</div>
+                <div>
+                    <dx-select-box
+                    formControlName="type"
+                    [dataSource]="availableTypes"
+                    displayExpr="displayExpr"
+                    valueExpr="valueExpr"
+                    ></dx-select-box>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="row-padding">Value</div>
+                <div>
+                    <dx-text-box
+                    formControlName="value"
+                    placeholder="Enter value..."
+                    (keyup.enter)="onSubmit()"
+                    ></dx-text-box>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row-padding">
+                    <dx-button
+                    class="float-right"
+                    icon="search"
+                    text="Create Grid"
+                    (onClick)="onSubmit()">
+                    </dx-button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <dx-popup
+        [width]="300"
+        [height]="550"
+        [showTitle]="false"
+        [dragEnabled]="false"
+        [closeOnOutsideClick]="true"
+        [(visible)]="popupVisible">
+        <div *dxTemplate="let data of 'content'">
+            <div >
+                <h4 class="text-center">Available Columns</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let column of columns">
+                            <td class="font-weight-bold">{{column.headerName}}</td>
+                            <td>{{column.type}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </dx-popup>
+
+    <app-dynamic-grid [gridConfig]="gridConfig" [allColumns]="columns"></app-dynamic-grid>
+
+</section>

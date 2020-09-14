@@ -1,0 +1,41 @@
+<section [hidden]="!filteredColumns.length">
+    <dx-data-grid #dataGrid id="gridContainer"
+        [dataSource]="filteredData"
+        keyExpr="id"
+        [columns]="filteredColumns"
+        [showBorders]="true"
+        (onInitialized)="onInitialized()"
+        (onCellPrepared)="onCellPrepared($event)"
+        (onEditingStart)="onEditingStart($event)"
+        >
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-editing
+            mode="popup"
+            [allowUpdating]="true"
+            >
+            <dxo-popup
+                title="Record Details"
+                [showTitle]="true"
+                [width]="500"
+                [height]="400"
+                [toolbarItems]="toolbarItems"
+                >
+            </dxo-popup>
+            <dxo-form [formData]="rowData">
+                <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+                    <dxi-item
+                    *ngFor="let column of allColumns"
+                    [dataField]="column.headerName"
+                    [editorOptions]="{ readOnly: true }"></dxi-item>
+                </dxi-item>
+            </dxo-form>
+        </dxo-editing>
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[5, 10, 20, 50]"
+            [showInfo]="true">
+        </dxo-pager>
+    </dx-data-grid>
+</section>

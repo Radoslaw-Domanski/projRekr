@@ -1,0 +1,19 @@
+.product {
+    height: 65px;
+    img{
+        display: block;
+        height: 100%;
+        width: 85px;
+        float: left;
+    }
+    div{
+        height:100%;
+        float:left;
+        padding-left:10px;
+        width: calc(100% - 85px);
+    }
+}
+.wrap-text{
+    white-space:pre-wrap; 
+    word-wrap:break-word;
+}

@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col">
+        <h2>Recipes</h2>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <div style="margin-left: 10px;min-height: 38px;"><span style="display:inline-block;padding-top: 5px;">Available ingredients: </span>
+            <dx-button icon="clear"
+                stylingMode="text"
+                text="Clear Ingredients"
+                type="default"
+                *ngIf="selectedItems.length"
+                (onClick)="clearIngredients()"></dx-button>
+        </div>
+        <dx-list
+            [items]="ingredients"
+            [height]="200"
+            [showSelectionControls]="true"
+            selectionMode="multiple"
+            [(selectedItems)]="selectedItems">
+        </dx-list>
+        <div class="caption text-center">Selected Ingredients:</div>
+        <div class="text-center" style="min-height:24px;">{{selectedItems && selectedItems.join(", ")}}</div>
+        <div class="text-center"
+        (mouseenter)="toggleButtonTooltip()" 
+        (mouseleave)="toggleButtonTooltip()">
+            <dx-button
+                stylingMode="contained"
+                text="Search Recipes"
+                type="default"
+                id="search-btn"
+                [disabled]="!this.selectedItems.length"
+                (onClick)="searchRecipes()">
+            </dx-button>
+            <dx-tooltip 
+                target="#search-btn"
+                [(visible)]="tooltipVisible"
+                [closeOnOutsideClick]="true">
+                <div *dxTemplate="let data = data of 'content'">
+                    <strong>Choose some ingredients !</strong>
+                </div>
+            </dx-tooltip>
+        </div>
+    </div>
+</div>
+<hr>
+<app-recipe-list [recipes]="recipesFound"></app-recipe-list>
