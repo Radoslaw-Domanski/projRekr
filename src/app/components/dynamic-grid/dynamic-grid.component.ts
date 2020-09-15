@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { DxDataGridComponent } from 'devextreme-angular';
+import notify from 'devextreme/ui/notify';
 import { JsonService } from 'src/app/services/json.service';
 import { Column, ExampleJSON } from '../json/json';
 import { DynamicGridConfig } from './dynamic-grid';
@@ -27,6 +28,7 @@ export class DynamicGridComponent implements OnChanges {
       const filteredJSON: any = this.jsonService.getFilteredJSON(this.gridConfig)
       this.filteredColumns = filteredJSON.filteredColumns.map(column=>column.headerName)
       this.filteredData = filteredJSON.data
+      notify("Dynamic grid has been built","success", 1000)
     }
     else{
       this.filteredData = []

@@ -4,10 +4,12 @@
         keyExpr="id"
         [columns]="filteredColumns"
         [showBorders]="true"
+        [allowColumnResizing]="true"
         (onInitialized)="onInitialized()"
         (onCellPrepared)="onCellPrepared($event)"
         (onEditingStart)="onEditingStart($event)"
         >
+        <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
         <dxo-filter-row [visible]="true"></dxo-filter-row>
         <dxo-header-filter [visible]="true"></dxo-header-filter>
         <dxo-editing
@@ -17,7 +19,7 @@
             <dxo-popup
                 title="Record Details"
                 [showTitle]="true"
-                [width]="500"
+                [width]="450"
                 [height]="400"
                 [toolbarItems]="toolbarItems"
                 >

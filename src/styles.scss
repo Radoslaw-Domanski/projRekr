@@ -17,3 +17,7 @@ body{
 .dx-list-item-selected a,.dx-state-active a  {
     color:black !important;
 }
+.dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit {  
+    width: 40px;
+    min-width: 40px;  
+}
