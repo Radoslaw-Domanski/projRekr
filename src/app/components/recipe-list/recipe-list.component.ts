@@ -9,6 +9,8 @@ import { Recipe } from '../recipes/recipes';
 export class RecipeListComponent implements OnInit {
 
   @Input() recipes: Recipe[] = [];
+  
+  defaultImgSrc: string = "assets/images/091-recipe.png"
 
   constructor() { }
 

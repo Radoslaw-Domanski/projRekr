@@ -1,10 +1,11 @@
 <div *ngIf="recipes.length">
-    <h3>Recipes Found</h3>
+    <img width="75" src="assets/images/250-recipe book.png">
+    <h3 class="title">Recipes Found</h3>
     <hr>
     <dx-list [items]="recipes" height="100%" selectionMode="single">
         <div *dxTemplate="let recipe of 'item'">
             <div class="product">
-                <img src="{{recipe.thumbnail}}" />
+                <img src="{{recipe.thumbnail || defaultImgSrc}}" />
                 <div>
                     <a [href]="recipe.href" class="wrap-text font-weight-bold">{{recipe.title.trim()}}</a>
                     <p class="wrap-text"><span class="font-weight-bold">Ingredients:</span> {{recipe.ingredients}}</p>

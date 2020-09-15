@@ -16,14 +16,20 @@
                 (onClick)="clearIngredients()"></dx-button>
         </div>
         <dx-list
+            #dxlist
             [items]="ingredients"
             [height]="200"
             [showSelectionControls]="true"
             selectionMode="multiple"
-            [(selectedItems)]="selectedItems">
+            [(selectedItems)]="selectedItems"
+            itemTemplate="listItem">
+            <div *dxTemplate="let item of 'listItem'">
+                <img [src]="item.image" class="row-img">
+                {{item.name}}
+            </div>
         </dx-list>
         <div class="caption text-center">Selected Ingredients:</div>
-        <div class="text-center selected-items">{{selectedItems && selectedItems.join(", ")}}</div>
+        <div class="text-center selected-items">{{selectedItems && getSelectedNames()}}</div>
         <div class="text-center"
         (mouseenter)="toggleButtonTooltip()" 
         (mouseleave)="toggleButtonTooltip()">

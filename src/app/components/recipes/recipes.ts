@@ -11,3 +11,8 @@ export interface Recipe{
     thumbnail: string,
     title: string
 }
+
+export interface Ingredient{
+    name: string,
+    image: string
+}
